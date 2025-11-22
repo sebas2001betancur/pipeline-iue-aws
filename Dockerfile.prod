@@ -1,0 +1,15 @@
+FROM nginx:alpine
+
+# HTML Simple y claro para el ambiente
+RUN echo '<!DOCTYPE html>\
+<html>\
+<head><title>Pipeline IUE</title></head>\
+<body style="text-align:center; padding:50px;">\
+<h1>Pipeline CI/CD AWS</h1>\
+<h2 style="color:blue;">AMBIENTE: PRODUCCION</h2>\
+<p>Estudiante: Sebastian</p>\
+</body>\
+</html>' > /usr/share/nginx/html/index.html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
