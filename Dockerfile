@@ -1,11 +1,17 @@
-# Usar imagen de nginx desde ECR público de AWS
-FROM public.ecr.aws/nginx/nginx:latest
+FROM nginx:alpine
 
-# Crear página HTML de prueba
-RUN echo '<html><body><h1>Ambiente: PRUEBAS</h1><p>Version: 1.0</p><p>Pipeline AWS - IUE</p></body></html>' > /usr/share/nginx/html/index.html
+# HTML Simple y claro para el ambiente
+RUN echo '<!DOCTYPE html>\
+<html>\
+<head><title>Pipeline IUE</title></head>\
+<body style="text-align:center; padding:50px;">\
+<h1>Pipeline CI/CD AWS</h1>\
+<h2 style="color:blue;">AMBIENTE: PRUEBAS</h2>\
+<p>Version: 2.0</p>\
+<p>Actualizado: Nov 2024</p>\
+<p>Estudiante: Sebastian</p>\
+</body>\
+</html>' > /usr/share/nginx/html/index.html
 
-# Exponer puerto 80
 EXPOSE 80
-
-# Comando para ejecutar nginx
 CMD ["nginx", "-g", "daemon off;"]
