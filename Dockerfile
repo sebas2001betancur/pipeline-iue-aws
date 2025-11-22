@@ -7,8 +7,6 @@ RUN echo '<!DOCTYPE html>\
 <body style="text-align:center; padding:50px;">\
 <h1>Pipeline CI/CD AWS</h1>\
 <h2 style="color:blue;">AMBIENTE: PRUEBAS</h2>\
-<p>Version: 2.0</p>\
-<p>Actualizado: Nov 2024</p>\
 <p>Estudiante: Sebastian</p>\
 </body>\
 </html>' > /usr/share/nginx/html/index.html
