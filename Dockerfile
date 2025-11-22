@@ -6,7 +6,7 @@ RUN echo '<!DOCTYPE html>\
 <head><title>Pipeline IUE</title></head>\
 <body style="text-align:center; padding:50px;">\
 <h1>Pipeline CI/CD AWS</h1>\
-<h2 style="color:blue;">AMBIENTE: PRUEBAS</h2>\
+<h2 style="color:blue;">AMBIENTE: PRUEBA</h2>\
 <p>Estudiante: Sebastian</p>\
 </body>\
 </html>' > /usr/share/nginx/html/index.html
