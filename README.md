@@ -14,5 +14,3 @@ Implementación de pipeline CI/CD usando AWS CodePipeline, CodeBuild y ECS
 - Desarrollo/Pruebas
 - Producción
 
-## Autor
-[Tu nombre]
