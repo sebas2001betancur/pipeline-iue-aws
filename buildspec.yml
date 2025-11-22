@@ -6,12 +6,20 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - IMAGE_TAG=${CODEBUILD_SOURCE_VERSION:=latest}
+      # Determinar qué Dockerfile usar
+      - |
+        if [ "$IMAGE_REPO_NAME" = "app-iue-prod" ]; then
+          DOCKERFILE="Dockerfile.prod"
+        else
+          DOCKERFILE="Dockerfile"
+        fi
+      - echo Using $DOCKERFILE
   
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker build -f $DOCKERFILE -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
   
   post_build:
